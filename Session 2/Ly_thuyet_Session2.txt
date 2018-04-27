@@ -1,0 +1,47 @@
+1. Khái niệm cấu trúc điền khiển: Được dùng để điều khiển luồng chạy của ứng dụng
+	có 3 loại cấu trúc điều khiển:
+	- Cấu trúc tuần tự(sequence)
+		+ thực hiện các câu lệnh tuừ trên xuống
+	- Cấu trúc lựa chọn(selection)
+		+ Dựa vào kết quả của biểu thức điêù kiện mà những lệnh tương ứng sẽ được thực hiện.
+		  Các cấu trúc lựa chọn gồm: if và switch
+	- Cấu trúc lặp(repetition or loop)
+		+ Lặp lại 1 hay nhiều lệnh cho đến khi biểu thức điều kiện có giá trị sai. Các cấu trúc lặp gôm:
+			for, while,do..while, Thứ tự thực hiện các câu lệnh của chương trình còn phụ thuộc vào các lệnh:
+			continue, break, goto.
+			
+	- Lệnh(statement): một biểu thức kết thúc bởi 1 dấu chấm phẩy goị là 1 lệnh:
+		+ ví dụ: int x;
+	- Khối lệnh(block): một hay nhiều lệnh dc bao quanh bởi cặp dấu {} gọi là khối lệnh.
+						về mặt cú pháp thì khối lệnh tương đương với 1 câu lệnh đơn
+		+ ví dụ:
+			if(a<b)
+			{
+				a=b;
+				b=c;
+				c=a;
+			}
+2. Sử dụng câu lệnh if, if..else
+	+ câu lệnh IF:
+	- Cú pháp: if(expression) statement;
+			   if(expression)
+			   {
+				block;
+			   }
+	-Ý nghĩa: expression là biểu thức điều kiện. Nếu kêt quả true thì statement (block) dc thực thi.
+	Ví dụ: Nhập 2 số nguyên a,b . In ra số lớn nhất
+	#include<iostream.h>
+	#include<conio.h>
+	int main()
+	{
+		int a,b,max;
+		cout <<"Nhap a: ";
+		cin >> a;
+		cout << "Nhap b: ";
+		con >> b;
+		max = b;
+		if(a>b)
+			max = a;
+		cout << max << "là so lon nhat.";
+		return 0;
+	}
