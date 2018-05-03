@@ -1,0 +1,69 @@
+1. Viết chương trình giải phương trình bâc 2: a*x*x + b*x + c =0
+	Thuật toán:
+	+ Nếu a==0 => giải phương trình bậc 1: bx+c=0
+		- nếu b==0
+			- Nếu c==0 vô số nghiệm
+			- Ngược lại => vô nghiệm
+		- ngược lại => nghiệm duy nhất x=-c/b;
+	+ Ngược lại
+		- tính delta = b*b - 4*a*c;
+		- nếu delta =0 => nghiệm kép -b/2*a;
+		- nếu delta >0 => hai nghiệm phân biệt
+			- x1 = -b - sqrt(delta)/(2*a);
+			- x2 = -b + sqrt(delta)/(2*a);
+		- nếu delta <0 => vô nghiệm
+2. Viết chương trình nhập vào chiều dài 3 cạnh của tam giác. Kiểm tra xem độ dài 3 cạnh tam giác vừa nhập tạo thành tam giác gì?
+	Hướng dẫn:
+		- Điều kiện 3 cạnh của tam giác: (a>0) && (b>0) && (c>0) && (a-b<c) && (a-c<b) && (b-c <a)
+		- Tam giác đều: (a==b) && (b==c)
+		- Tam giac cân: (a==b)|| (a==c) || (b==c)
+		- Tam giác vuông: (a*a + b*b== c*c)|| (a*a + c*c = b*b)||(b*b + c*c== a*a)
+		- Tam giác vuông cân: (a*a + b*b== c*c)&& (a==b)|| (a*a + c*c = b*b)&& (a==c)||(b*b + c*c== a*a) && (b==c)
+		- Else không phải độ dài 3 cạnh tam giác
+3. Viết chương trình nhâpj vào 2 giờ (giờ, phút, giây) .Tính tổng 2 giờ vừa nhập
+		Hướng dẫn:(chú ý nên gán giá trị khởi tạo cho biến tổng )
+		- Nếu tổng hai số giây >= 60 thì
+			+ Phút tổng +1;
+			+ Giây tổng = giây tổng- 60
+		Nếu tổng hai số phút >= 60 thì
+			+ Giờ tổng +1
+			+ Phút tổng = Phút tổng -60
+	(Khac: Tạo struct 3 biến h,m,s
+			s = s1+s2;
+			if (s>60) {
+			s-=60; m+=1; }
+			if (m>60) {
+			m-=60; h+=1; }
+			if (h>=24) 
+			h-=24;)
+4. Nhập vào ngày tháng năm bất kì. Kiểm tra ngày tháng naưm vừa nhập vào có hợp lệ hay không và năm đó có nhuần hay ko.
+	Yêu cầu:
+	- Nhập ko đúng báo nhập sai
+	- Nhập tháng 2 năm thường mà có 29 ngày là ko hợp lệ
+	- Nhập đúng báo ngày hợp lệ kiểm tra nhuần hay ko
+	Hướng dẫn
+	- Tháng 1,3,5,7,8,10,12 là tháng có 31 ngày
+	- Tháng 4,6, 9 11 là tháng có 30 ngày
+	- Tháng 2 của năm có 28 ngày riêng năm nhuần có 29 ngày
+5. Viết chương trình nhập vào số nguyên có 3 chữ số. In ra màn hình cách đọc 3 chữ só đó
+	Hướng dẫn
+	- Nhập số n <1000
+	- t= n/100;
+	- c=(n%100)/10;
+	- dv= (n%100)%10;
+	- c==0, dv!=0 đọc là lẽ(102: một trăm lẽ hai)
+	- c==0, dv==0 đọc là chẳn(100: một trăm chẳn)
+6. Bài tập tự làm
+	Viết chương trình nhập vào một năm . Tìm tên của năm dó là gì?
+	Ví dụ:- Nhập năm 2016
+		  - In ra năm: Bính thân
+	Hướng dẫn
+	- Tên gọi theo can, chi
+	+ can= nam%10;
+	+ chi= năm%12;
+	-Có 10 can theo thứ tự từ 0: Canh, tân, nhâm, quý, giáp, ất, bính, đinh, mậu, tí
+	- có 12 chi theo thứ tự từ 0; Thân, dậu, tuất, hợi, tý, sửa, dần, mẹo, thìn, tỵ, ngọ, mùi
+	- Số dư can chi nằm vào thứ tự nào sẽ ra tên năm đó
+	Ví dụ: Can = 2016%10=6
+			Chi = 2016%12=0
+		Vậy can thứ 6 là Bính, chi thứ 0 là Thân=> 2016 tên là Bính thân

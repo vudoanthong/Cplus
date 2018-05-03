@@ -30,18 +30,70 @@
 			   }
 	-Ý nghĩa: expression là biểu thức điều kiện. Nếu kêt quả true thì statement (block) dc thực thi.
 	Ví dụ: Nhập 2 số nguyên a,b . In ra số lớn nhất
-	#include<iostream.h>
-	#include<conio.h>
+	#include<iostream>
+	using namespace std;
 	int main()
 	{
 		int a,b,max;
 		cout <<"Nhap a: ";
 		cin >> a;
 		cout << "Nhap b: ";
-		con >> b;
+		cin >> b;
 		max = b;
 		if(a>b)
 			max = a;
-		cout << max << "là so lon nhat.";
+		cout << max << " la so lon nhat.";
 		return 0;
 	}
+	+ Câu lệnh IF..ELSE
+	- Cú pháp: if(expression) statement1;
+				else
+					statement2;
+				if(expression)
+				{
+					block1;
+				}
+				else
+				{
+					block2;
+				}
+	- Ý nghĩa; Nếu exprestion là true thì statement1(block1) được thực thi
+				Ngược lại statement2(block2) được thực thi.
+	+ Câu lệnh IF..ELSE lồng nhau
+		- Cú pháp: if(expression 1)
+						statement 1(block 1);
+						else if(expression 2)
+								statement 2(block2);
+								else if(expression 3)
+										statement 3(block3);
+										...
+		- Ví dụ: Nhập 3 số nguyên a,b,c In ra màn hình số lớn nhất
+				- Nhâp vao 3 số nguyên:
+				- Nếu a>b & a> c => a là số lớn nhất
+				- Else Nếu b> a & b>c => b là số lớn nhất
+						- Else c là số lớn 
+		+ Câu lệnh SWITCH..CASE: Cấu trúc switch là một cấu trúc lựa chọn có nhiều nhánh, dc sử dụng khi có nhiều lựa chọn.
+			Cú pháp: switch(expression)
+					 {
+						case value 1: statement 1; break;
+						case value 2: statement 2; break;
+						...
+						case value n: statement n; break;
+						[default: statement;]
+					 }
+			Ý Nghĩa:- Expression(biểu thức): phải có kết quả là trị nguyên.
+					- Default: la thành phần ko bắt buộc
+					- Các giá trị sau case phải là hằng nguyên
+					- Khi expression ko thỏa điều kiện nào thì sẽ nhảy tới câu lệnh default nếu ko có default thì thoát ra switch
+					- Khi gặp break thì thoát khỏi switch
+			Ví dụ: Nhập vào số nguyên kiểm tra là thứ mấy trong tuần
+	+ Câu lệnh GOTO: Dùng để chuyển điều khiển tới một câu lệnh nào đó được chỉ định bởi nhãn.
+		- Cú pháp: + goto label;
+					...
+					label statement;
+					or
+					+  label statement;
+						...
+						goto label;
+		
+					

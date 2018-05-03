@@ -10,7 +10,9 @@ int main()
 		cin >> b;
 		max = b;
 		if(a>b)
-			max = a;
-		cout << max << " la so lon nhat.";
+			cout << a <<" la so lon nhat.";
+			
+		else
+			cout <<b << " la so lon nhat";
 		return 0;
 	}
