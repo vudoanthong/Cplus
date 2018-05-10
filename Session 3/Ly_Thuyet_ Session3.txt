@@ -1,0 +1,14 @@
+1. Khái niệm vòng lặp(repetition or loop): lặp lại một hay nhiều lệnh cho đến khi biểu thức điều kiện
+	có giá trị sai. Các cấu trúc lặp gồm:
+	- for
+	- while
+	-do ... while
+	-Tuy nhiên thứ tự thực hiện các lệnh còn chi phối bởi các lệnh nhảy như continue, break, goto
+ 2. Vòng lặp for
+	cú pháp: for(Exp1;Exp2;Exp3)
+				statement;
+	ý nghĩa;- Exp1: là biểu thức khởi tạo được thực hiện
+			- Exp2: là biểu thức điều kiện
+			- Exp3: biểu thức điều khiển lặp
+	Thân của vòng lặp có thể là một lệnh hoặc một khối lệnh
+	 Ví dụ: Viết chương trình tính tổng các số nguyên từ 1 đến n.

@@ -1,0 +1,93 @@
+1. Khái niệm vòng lặp(repetition or loop): lặp lại một hay nhiều lệnh cho đến khi biểu thức điều kiện
+	có giá trị sai. Các cấu trúc lặp gồm:
+	- for
+	- while
+	-do ... while
+	-Tuy nhiên thứ tự thực hiện các lệnh còn chi phối bởi các lệnh nhảy như continue, break, goto
+ 2. Vòng lặp for
+	cú pháp: for(Exp1;Exp2;Exp3)
+				statement;
+	ý nghĩa;- Exp1: là biểu thức khởi tạo được thực hiện
+			- Exp2: là biểu thức điều kiện
+			- Exp3: biểu thức điều khiển lặp
+	Thân của vòng lặp có thể là một lệnh hoặc một khối lệnh
+	 Ví dụ: Viết chương trình tính tổng các số nguyên từ 1 đến n.
+	 Lưu ý:
+	 - C/C++ cho phép Expression là 1 định nghĩa biến
+		ví dụ: for(int i =0; i <=n; i++)
+	 - Bất kì biểu thức nào trong 3 biểu thức của vòng lặp for đều có thể rỗng
+		ví dụ: for(;i!=0;) statement;
+	 - Xóa tất cả các biểu thức trong vòng lặp for sẽ cho 1 vòng lặp vô tận.
+		ví dụ: for(;;) statement;
+3. vòng lặp while
+	while(expression)
+		statement;
+	ý nghĩa:
+	- Expression được xác định giá trị
+	- Nếu kết quả là true thì statement thực thi và tiếp tục lặp
+	- Nếu kết quả là fail thì thoát khỏi vòng lặp while.
+	 ví dụ: Viet chương trình tính tôngr các số nguyên từ 1 tới n
+4. Vòng lặp do...while
+	cú pháp:
+	do{
+		statement;
+	}
+	while(expression);
+	ý nghĩa:
+	- Statement được thực hiện
+	- Expression được định trị
+	- Nếu expression là true thì tiếp tục lặp
+	- Nếu expression là false thì thoát khỏi vòng lặp
+5. Phân biệt 3 vòng lặp
+	- Cả 3 vòng lặp đêù lặp lại 1 hay nhiều lệnh cho đến khi biểu thức điều kiện sai
+	- có sự khác biệt nhâts định:
+		+ Vòng lặp for: số lần lặp biết trước
+		+ vòng lặp while và do...while: số lần lặp chưa bít trước
+		+ vòng lặp do...while: số lần lặp ít nhất 1 lần.
+6. Lệnh rẻ nhánh và lệnh nhảy: break, continue
+	Lệnh break: Dùng đêr thoát khỏi một cấu trúc điều khiển mà không chờ đến biểu thức điều kiện được định trị
+	Khi break được thực hiện bên trong 1 cấu trúc lặp, điều khiển(control flow) tự động nhảy đến lệnh đầu tiên ngay sau cấu trúc lặp đó
+	Không sử dung lệnh break bên ngoài các cấu trúc lặp như while, do..while, cấu trúc switch
+	ví dụ:
+	Giả sử mật khẩu là 1. Đọc vào một mật khẩu người dùng tối da n lần. Nếu nhập ko đúng số 1 báo là nhập sai.
+	Lệnh continue: dùng để kết thúc vòng lặp hiện tại và bắt đầu vòng lặp tiếp theo.
+	Lệnh continue chỉ được dùng trong thân các cấu trúc lặp như for, while, do...while
+	Câu lệnh continue thường đi kèm với câu lệnh if.
+7. Vòng lặp lồng nhau
+	- Vòng lặp for lồng nhau: ngôn ngữ c/c++ cho phép chúng ta sử dụng một vòng lặp bên trong vòng lặp khác gọi là vòng lặp lồng nhau
+		+ cú pháp:
+			for(exp1; exp2; exp3)
+			{
+				for(exp4; exp5; exp6)
+				{
+					statement;
+				}
+				statement;
+			
+			}
+		ví dụ:
+	- Vòng lặp while lồng nhau
+		+ cú pháp:
+			while(exp1)
+			{
+				while(exp2)
+				{
+					statement;
+				}
+				statement;
+			}
+	
+	- Vòng lăpj do ... while lồng nhau
+		cú pháp:
+		do
+		{
+			statement;
+			do
+			{
+			statement;
+			}
+			while(exp2);
+		
+		}
+		while(exp1);
+	 
