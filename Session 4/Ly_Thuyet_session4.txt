@@ -1,0 +1,102 @@
+1. Xây dựng hàm
+	- Khái niệm: là một khối lệnh thực hiện một công việc hoàn chỉnh(module)
+		được đặt tên và được gọi thực thi nhìu lần tại nhiều vị trí trong chương trình
+		+ Hàm còn được gọi là chương trình con(subroutine)
+		+ Hàm có thể được gọi từ chương trình chính(hàm main) hoặc từ hàm khác
+		+ Hàm có giá trị trả về hoặc không.Nếu hàm ko có giá trị trả về thì gọi là thủ tục(procedure)
+	- Phân loại hàm
+		+ Hàm thư viện: là những hàm được xây dựng sẵn.Muốn sử dụng các hàm thư viện phải được khia báo thư viện cho nó trong phần khai báo.(#include)
+		+ Hàm do người dùng tự định nghĩa
+		+ Dạng tổng quát của hàm:
+		return Type functionName(parameterList)
+		{
+			//body
+		}
+		trong đó
+		return Type: kiểu dữ liệu trả về
+					+ Hàm về giá trị gì thì phải khai báo kiểu dữ liệu trả về.
+					+ Hàm không trả về gía trị thì phải dùng kiểu void
+		functionName: tên hàm
+					+ tên hàm không có khoảng trắng
+					+ có thể viết hoa hoặc viết thường
+		parameterList: Danh sách tham số
+					+ Đây là tham số hình thức hay còn gọi là biến hình thức
+					+ Mỗi tham số cách nhau dấu phẩy
+		ví dụ: viết chương trình tính tổng hai số sử dụng hàm
+		#include<iostream.h>
+		int conghaiso(int a, int b);
+		void main()
+		{
+		}
+		int conghaiso(int a, int b)
+		{
+			return a+b;
+		}
+		void ham1(int x, int y)// Hàm cos kiểu void đôi khi gọi là thủ tục
+		{
+			return x+y;// SAI
+		}
+		từ khóa return có tác dụng gì trong hàm:
+		Khi một hàm muốn trả về một giá trị nào đó thì chúng ta dùng return.
+		Bất kì giá trị nào của hàm cũng có thể sủ dung return ngoại trừ void
+2. Sử dụng hàm:
+		Một hàm khi đã định nghĩa nhưng chúng vẫn chưa được thực thi , Hàm chỉ được thực thi khi trong chương trình có một lời gọi đến nó
+		Cú pháp: <Tên hàm> ([Danh sach tham so])
+	- Cách truyền tham số: đối với các hàm có tham số hình thuức thì khi thực hiện phải truyền giá trị thưc cho các tham số naỳ.
+		+ Truyền tham trị: khi tham số hình thức thay đổi thì tham số thực vẫn ko thay đổi
+		+ truyền tham biến: khi tham số hình thức thay đổi thì tham số thực cũng thay đổi theo
+	- Giá trị mặc định cho tham số: Khi định nghĩa một hàm chúng ta có thể xác định một giá trị mặc định cho mỗi tham số cuối cùng
+		giá trị này sẽ được sử dụng nếu tham số tương ứng là để trống bên trái khi gọi hàm đó.
+		ví dụ: int cong2so(int a =1, b =1)
+				int cong2so(int a, int b=1)
+				int cong2so(int a=1, int b)// báo lỗi
+		-Nếu một giá trị cho tham số đó không được truyền khi hàm được gọi, thì giá trị mặc định đã cung cấp sẽ được sử dụng
+		-Nếu một giá trị đã được xác định, thì giá trị mặc định này bị bỏ qua thay vào đó, giá trị đã truyền sẽ được sử dụng.
+3. Khai báo hàm(Prototype):
+	- Một khai báo hàm thông báo cho trình biên dịch về tên hàm và cách gọi hàm. phần thân hàm có thể định nghĩa một cách rời rạc.
+	- Một khai báo hàm có các phần sau đây:
+		kieu_tra_ve ten_ham(danh_sach_tham_so);
+	ví dụ: int cong2so(int a, int b);
+			int nhan2so(int a, int b);
+			int hoanvi(int &a, &b);
+	- Tên các tham số không quan trọng trong việc khai báo hàm, và kiêủ dưới đây là cách khai báo hợp lệ:
+	 ví dụ:
+		int cong2so(int,int);
+		int nhan2so(int , int);
+		int hoanvi(int &, int &);
+	- Định nghĩa hàm: chúng ta phải khai báo hàm trước khi gọi hàm đó.
+	- trường hợp đã khai báo hàm, chúng ta có thể định nghĩa hàm bất cứ ở đâu trong chương trình
+4. Lệnh return và exit
+	- Lệnh return
+	Xét một khai báo hàm như sau:
+	<kieu ham> <ten ham> (danh sach tham so)
+	{
+		lệnh;
+		return(biểu thức trả về);
+	}
+	-Trong đó return là để truyền dữ liệu cho nơi gọi hàm.
+	-câu lệnh return bắt buộc là phải có đối với hàm có giá trị trả về.
+	-có thể có hoặc không đối với hàm không có giá trị trả về(có kiểu trả về void)
+	-Đối với hàm có giá trị trả về thì kèm theo sau return là một biểu thức.
+	-Kiểu giá trị của biểu thức này chính là kiểu của hàm.
+	-chúng ta có thể đặt return bất cứ ở đâu trong thân hàm.
+	- Khi gặp return chương trình thoát khỏi hàm và trả về giá trị biểu thức sau return.
+	- Có thể có nhiều lệnh return trong hàm.
+	- ví dụ:
+		int sum(int a, int b)
+		{
+			return(a+b);
+		}
+		int max(int a, int b)
+		{
+			if(a>b)
+				return a;
+			else
+				return b;
+	- Lệnh exit
+	+ Hàm exit() trong C/C++ được sử dụng để thoát khỏi chương trình
+	+ Khi gọi hàm này ngay lập tức kết thúc chương trình và chuyển quyền điều khiển cho hệ điều hành.
+	+ cú pháp: 
+		exit(int return_code);
+		return_code: thường là số 0, Số 0 sẽ xác định việc kết thúc chương trình một cách bình thường. tuy nhiên có vài trường hợp
+		return_code : là những số khác 0 để xác định vài loại lỗi
