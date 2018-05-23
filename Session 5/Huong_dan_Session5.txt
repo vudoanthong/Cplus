@@ -1,0 +1,21 @@
+1. Bài 1: Viết hàm đệ quy tính
+	S(n) = 1/1*2 + 1/2*3 + ... 1/(n-1)*n + 1/n*(n+1)
+	Phân tích:
+	- n = 0 (phép chia cho 0 là vô nghĩa)
+	- n = 1 => 1/2
+	- S(n) = S(n-1) +1/n(n + 1)
+2. Bài 2: Viết hàm đệ quy tính 
+	 - Tinh(x,n) = x^n
+	 Ta cần biết
+	 - với n > 0 (ví dụ là 3) thì x^3 là x*x*x
+	 - Với n < 0 (ví dụ là -3) thì x^3 là : 1/(x^3) = 1/x * 1/x *1/x*x*x
+	 - n = 0  => 1
+	 - n = 1 => x
+	 - n = -1 => 1/x
+	 - n < 0 => S(x,n) = S(x, n + 1) *1.0/x;
+	 - n > 0 => S(x,n) S(x,n-1) *x; 
+3. Bài 3 Viết hàm đệ quy tính số hạng thứ n của 2 dãy sau:
+		 X(0) = 1
+		 Y(0) = 1
+		 X(n) = x(n-1) + y(n-1) (n > 0)
+		 Y(n) 3*x(n-1) + 2*y(n-1) (n>0)

@@ -1,0 +1,157 @@
+Khái niệm đệ quy:
+	Một hàm được gọi là đệ quy nếu lệnh trong thân hàm gọi đến chính hàm đó.
+	Đệ quy giúp giải quyết bài toán theo cách nghĩ thông thường  một cách tự nhiên.
+	Nếu lời giải của một bài toán P thực hiện bằng lời giải của bài toán P' có dạng giống như P thì đó là 1 lời giải đệ quy.
+Khái niệm đệ quy
+	- Một thủ tục(hàm) đệ quy gồm 2 phần:
+	+ Phần neo (điều kiện dừng): phần này thực hiện khi công việc đơn giản, có thể giải trực tiếp dc.
+	+ Phần đệ quy(lời gọi đệ quy); trong trường hợp bài toán chưa giải được bằng phần neo, ta xác định các bài toán con và gọi lại chính thủ tục(hàm)
+	  của nó với tham số khác để giaỉ quyết bài toán con đó.
+	- Đệ quy phải xác định được điều kiện dừng. Nếu ko khác định được chính xác thì làm bài toán bị sai và có thể bị lặp vĩnh viễn(Stack Overhead)
+Ví Dụ: Bài toán tính n! giai thừa:
+	Định nghĩa giai thừa một số nguyên dương như sau
+	- 5! = 5 * 4!
+	- 4! = 4 * 3!
+	- Tức là nếu ta biết được (n-1) giai thừa thì ta sẽ tính được n giai thừa, vì n! = n*(n-1)!
+	- Thấy n = 0 hoặc n = 1 thì giai thừa luôn = 1 => chính là điểm dừng
+	- Vậy: n! = 1*2*3*...*(n-1)*n = (n-1)!*n(với 0! = 1)
+Ví dụ: Bài toán tìm dãy số Fibonacci: Định nghĩa dãy Fibonacci là một dãy số mà số tiếp theo là tổng của hai số liền trước, ví dụ;
+	1,1,2,3,5,8,13...với số đầu tiên là 1
+	Ta có công thức dãy Fibonacci
+	F(1) = 1
+	F(2) = 1
+	F(n) = F(n-1) + F(n-2)
+	Hàm đệ quy tính n!
+		int giaiThua(int n)
+		{
+			if(n<=1)
+				return (1);
+			return n * giaiThua(n-1);// gọi đệ quy(gọi lại chính nó)
+			
+		}
+Ưu là nhược điểm của đệ quy:
+- Ưu điểm:
+	+ Thuận tiện cho việc biểu diễn bào toán
+	+ Làm gọn chương trình
+	+ Lập trình viên dễ dàng viết chương trình, diễn đạt tư duy rất rõ ràng, chặt chẽ
+	
+- Nhược điểm:
+	+ Gây tốn bộ nhớ vì mỗi lần gọi đệ quy phải cần thêm vùng nhớ mới trong khi vùng nhớ cũ vẫn duy trình
+	+ không tối ưu về mặt thời gian(so với sử dụng vòng lặp)
+Phân loại đệ quy: có 4 loại đệ quy
+	- Đệ quy tuyến tính
+	- Đệ quy nhị phân
+	- Đệ quy phi tuyến
+	- Đệ quy hỗ tương
+1. Đệ quy tuyến tính: trong thân hàm có duy nhất một lần gọi hàm gọi là chính có một cách tường minh
+	Kiểu_ dữ_liệu Tên_hàm (<Danh sách tham số>)
+	{
+		if(Điều kiện dừng){
+			...
+			return (giá trị trả về);
+		} else
+		{
+			Tên_hàm (<Danh sách tham số>);
+		}
+	}
+	ví dụ:
+	Tính S(n) = 1 + 2 + 3 + ... + n
+	 Điều kiện dừng: S(0)= 0
+	 Quy tắt (công thức) tính: S(n) = S(n-1) + n.
+	 Hàm:
+	  long TongS(int n)
+	  {
+		if(n==0)
+			return 0;
+		return (TongS(n-1) +n);
+	  }
+2. Đệ quy nhị phân: trong thân hàm có hai lời gọi hàm lại chính nó một cách tường minh.
+	công thức:
+		Kiểu_dữ_liệu Tên_hàm(<Danh sách tham số>)
+		{
+			if(<Điều kiện dừng>){
+				...
+				return <giá trị trả về>;
+			} else{
+				...
+				Tên_hàm(<Danh sách tham số>);
+				...
+				Tên_hàm(<Danh sách tham số>);
+			}
+		}
+	Ví dụ: Tính số hạng thứ n của dãy Fibonacci được định nghĩa như sau:
+		- F(1)= F(0) = 1;
+		- F(n) = F(n-1) + F(n-2); (n>1)
+		- Điều kiện dừng: F(0) = F(1) = 1.
+		Hàm:
+		long Fibonacci(int n)
+		{
+			if(n == 0 || n == 1)
+				return 1;
+			return Fibonacci(n-1) + Fibonacci(n-2);
+		}
+3. Đệ quy phi tuyến: Trong thân hàm có lời gọi hàm gọi lại chính nó đặt bên trong vòng lặp:
+		Công thức:
+		Kiểu_dữ_liệu Tên_hàm(<Danh sách tham số>)
+		{
+			for(int i=1; i <=n; i++){
+				...
+				if(<Điều kiện dừng>){
+					...
+				}
+				else{
+				....
+				Tên_hàm(<Danh sách tham số>);
+				...
+			}
+		}
+		Ví dụ: Tính số hạng thứ n của dãy {Xn} được định nghĩa như sau:
+			- X(0)=1;
+			- X(n)= n^2X(0) + (n-1)^2X(1) + ... + 1^2X(n-1); n >=0;
+			- Điều kiện dừng: X(0)=1.
+			Hàm:
+			long TinhXn(int n)
+			{
+				if( n==0)
+					return 1;
+					long s=0;
+					for (int i =1; i <=n; i ++)
+					s = s + i * i * TinhXn(n-i);
+					return s;
+					
+			}
+4. Đệ quy hỗ tương: trong thân hàm này có lời gọi đến hàm kia và trong thân hàm kia có loi gọi hàm tới hàm này.
+	Công thức:
+	Kiểu_dữ_liệu Tên_hàm2(<danh sách tham sô>);
+	Kiểu_dữ_liệu Tên_hàm1(<danh sách tham sô>)
+	{
+		...
+		Tên_hàm2(<Danh sách tham số>);
+		...
+	}
+	Kiểu_dữ_liệu Tên_hàm2(<Danh sách tham số>)
+	{
+		...
+		Tên_hàm1(<Danh sách tham số>);
+		...
+	}
+	Ví dụ: Tính số hạng thứ n của hai dãy {Xn} , {Yn} được định nghĩa như sau:
+		- X0 = Y0 = 1;
+		- Xn = X(n-1) + Y(n-1);
+		- Yn = n^2*X(n-1) + Y(n-1);
+		- Điều kiện dừng X(0) = Y(0)= 1.
+		Hàm:
+		long TinhYn(int n);
+		long TinhXn(int n)
+		{
+			if(n==0)
+				return 1;
+				return TinhXn(n-1) + TinhYn(n-1);
+		}
+		long TinhYn(int n)
+		{
+			if(n==0)
+				return 1;
+			return n*n* TinhXn(n-1) + TinhYn(n-1);
+		}
+			
